@@ -6,8 +6,7 @@ namespace WeatherApp1
 {
     public static class Constants
     {
-        // linking the coordinates to the app.
-        public static string OpenWeatherMapEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-        public static string OpenWeatherMapAPIKey = "a9956d3cbc86866548330347d551ed14";
+        public static string OpenWeatherMapEndpoint = "https://api.openweathermap.org/data/2.5/weather?lat=22.9375&lon=30.5595&appid=c4a63735f42f9178aec79f1de6f80499";
+        public static string OpenWeatherMapAPIKey = "c4a63735f42f9178aec79f1de6f80499";
     }
 }

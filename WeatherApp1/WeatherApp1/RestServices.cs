@@ -3,9 +3,9 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using WeatherApp1;
+//using WeatherApp1;
 
-namespace WeatherApp
+namespace WeatherApp1
 {
     public class RestServices
     {

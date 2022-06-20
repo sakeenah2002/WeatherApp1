@@ -1,11 +1,119 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr"
-             x:Class="WeatherApp1.MainPage">
+             xmlns:local="clr-namespace:WeatherApp1"
+             x:Class="WeatherApp1.MainPage"
+              Title="ZAWeather"  BackgroundColor="#4E6969"  >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="Medium"/>
+                <Setter Property="TextColor"
+                        Value="Black"/>
+            </Style>
+
+            <Style x:Key="labelResultStyle"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="Large"/>
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center"/>
+                <Setter Property="TextColor"
+                        Value="#F1F1F1"/>
+                <Setter Property="Margin"
+                        Value="20, 5, 5, 5"/>
+            </Style>
+
+            <local:ConvertTimeDate x:Key="ConvertTimeDate"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout>
-       
-    </StackLayout>
+        <Grid Padding="10,20,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Enter City:" 
+                   Grid.Row="1" 
+                   VerticalOptions="Center"
+                   Style="{StaticResource labelStyle}"  />
+
+            <Frame CornerRadius="15"
+                   Padding="0"
+                   Grid.Row="1" 
+                   Grid.Column="1"
+                   Margin="5,0">
+                <Entry x:Name="_enterCity"
+                   VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                   BackgroundColor="#7F9BA6" 
+                   TextColor="#F1F1F1"
+                   Text="Durban" />
+            </Frame>
+
+            <Button Grid.Row="2" 
+                    Grid.Column="0"
+                    Text="Get Weather" 
+                    BorderWidth="1"
+                    BorderColor="Black"
+                   BackgroundColor="#0D9DE3" 
+                    TextColor="#F1F1F1"
+                    CornerRadius="15"
+                    Clicked="GetWeatherData"/>
+        </Grid>
+
+        <ScrollView>
+            <StackLayout Padding="15">
+
+                <Label Text="Cloud Cover" 
+                       Style="{StaticResource labelStyle}" />
+                <Frame Padding="10" CornerRadius="15" BackgroundColor="#7F9BA6">
+                    <Label Text="{Binding Weather[0].Visibility}" 
+                       Style="{StaticResource labelResultStyle}" />
+                </Frame>
+
+                <Label Text="Temperature" 
+                       Style="{StaticResource labelStyle}" />
+                <Frame Padding="10" CornerRadius="15" BackgroundColor="#7F9BA6">
+                    <Label Text="{Binding Main.Temperature}" 
+                       Style="{StaticResource labelResultStyle}" />
+                </Frame>
+
+                <Label Text="Humidity" 
+                       Style="{StaticResource labelStyle}" />
+                <Frame Padding="10" CornerRadius="15" BackgroundColor="#7F9BA6">
+                    <Label Text="{Binding Main.Humidity}" 
+                       Style="{StaticResource labelResultStyle}" />
+                </Frame>
+                
+                <Label Text="Air Pressure"
+                       Style="{StaticResource labelStyle}"/>
+                <Frame Padding="10" CornerRadius="15" BackgroundColor="#7F9BA6">
+                    <Label Text="{Binding Main.Pressure}"
+                       Style="{StaticResource labelResultStyle}"/>
+                </Frame>
+                
+                <Label Text="Wind Speed" 
+                       Style="{StaticResource labelStyle}" />
+                <Frame Padding="10" CornerRadius="15" BackgroundColor="#7F9BA6">
+                    <Label Text="{Binding Wind.Speed}" 
+                       Style="{StaticResource labelResultStyle}" />
+                </Frame>
+             
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
 </ContentPage>
