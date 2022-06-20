@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System;
 using Xamarin.Forms;
 using System.Globalization;
 using System.Text;
